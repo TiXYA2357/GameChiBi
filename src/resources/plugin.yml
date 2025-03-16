@@ -1,0 +1,7 @@
+name: GameChiBi
+main: TiXYA2357.GameSJD.Main
+description: TheGameChiBi
+author: TiXYA2357
+version: 1.0.0
+api: [1.0.0]
+load: STARTUP
