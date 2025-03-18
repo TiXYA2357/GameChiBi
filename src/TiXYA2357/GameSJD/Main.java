@@ -33,7 +33,7 @@ public class Main extends PluginBase implements Listener{
         this.getServer().getPluginManager().registerEvents(this, this);
         this.getServer().getScheduler().scheduleRepeatingTask(this, new RepeatTask(this), 20);
         this.getServer().getCommandMap().register("GameSJD", new ChiBiCommand(ChiBiCMD));
-        nks.getLogger().info("§a三界斗插件加载成功\n作者:§b TiXYA2357");
+        nks.getLogger().info("§a三界斗插件加载成功\n              作者:§b TiXYA2357");
         nks.getLogger().info("§e插件是免费的,如果遇到收费那么你被 §4§lNever Gonna Give You Up §r§e了!");
         try {Class.forName("tip.utils.variables.BaseVariable");
             TipVariable.init(); } catch (Exception ignored) {}

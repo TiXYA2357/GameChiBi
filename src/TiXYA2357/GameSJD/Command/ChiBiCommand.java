@@ -199,7 +199,7 @@ public class ChiBiCommand extends Command {
                            + " §r§d帮助:§7\nadd <玩家名> <数量> 增加经济\nset <玩家名> <数量> 设置经济\nremove <玩家名> <数量> 移除经济");
                         else{try{
                             int money = Integer.parseInt(args[3]);
-                            Player target = nks.getPlayer(args[2]);
+                            Player target = nks.getPlayer(args[2].replace("@p", p.getName()));
                             if (target != null){ String type = "";
                                 switch (args[1]) {
                             case "add" -> {
@@ -212,8 +212,9 @@ public class ChiBiCommand extends Command {
                                 setPlayerInfo(target, "斗币", (int) getPlayerInfo(target, "斗币") - money);
                                 type = "§r§b移除";}
                             default -> nks.dispatchCommand(p,ChiBiCMD + " money");
-                                }  target.sendMessage(PT + "你的" + CoinName + "§r§7已" + type + "§7: " + money);
-                                p.sendMessage(PT + "已为 " + target.getName() + type + "§7 " + money + " " + CoinName );}
+                                }if (target.getUniqueId() != p.getUniqueId())
+                                   p.sendMessage(PT + "已为 " + target.getName() + type + "§7 " + money + " " + CoinName );
+                               target.sendMessage(PT + "你的" + CoinName + "§r§7已" + type + "§7: " + money);}
                         }catch (NumberFormatException ex){p.sendMessage(PT + "请输入正确的数字(整数)");}
                         }}
                     case "admin" -> {

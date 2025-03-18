@@ -175,7 +175,9 @@ public class Lib {
 
             slog = InLoad("战事日志", new ArrayList<>());
             return true;
-        } catch (Exception e) {return false;}
+        } catch (Exception e) {nks.getLogger().info(UIT+" §c配置文件加载失败: §e\n" + e + "\n§c插件已禁用");
+            nks.getPluginManager().disablePlugin(plugin); return false;
+        }
     }
 
     public static void setConfig(String Key ,Object Value){
